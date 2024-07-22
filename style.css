@@ -1,0 +1,367 @@
+/* General Reset and Base Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Light gray background f8f9fa*/
+    color: #343a40; /* Dark text */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #343a40; /* Dark background */
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s; /* Smooth color transition */
+}
+
+/* Navbar link Styles */
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa; /* Light text */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #00bcd4; /* Light blue on hover */
+}
+
+.navbar-brand {
+    margin-left: 150px;
+}
+
+/* Content Styles */
+.content {
+    padding: 20px;
+    padding-top: 60px;
+}
+
+/* Module Styles for Full Screen Sections */
+.module {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Page Specific Styles */
+#personal-details .profile-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #343a40; /* Blue border */
+    margin-bottom: 20px;
+}
+
+#personal-details .bio {
+    text-align: justify;
+    margin-right: 180px;
+}
+
+#personal-details .subtitle {
+    margin-bottom: 45px;
+    color: #00bcd4; /* Blue subtitle */
+    font-size: 1.2em;
+}
+
+/* Title Styles */
+.title {
+    color: #00bcd4; /* Blue title */
+    margin-bottom: 20px;
+    font-size: 2em;
+    transition: color 0.3s; /* Smooth color transition */
+    font-weight: bold;
+}
+
+/* Skill Styles */
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.skill-type {
+    font-size: 1.5em;
+    color: #00bcd4; /* Blue skill type */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skill-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 20%;
+    overflow: hidden;
+}
+
+.skill-name {
+    font-size: 1em;
+}
+
+/* Education Styles */
+.education-item {
+    margin-bottom: 15px;
+    text-align: justify;
+    font-size: 1.1em;
+}
+
+.education-year {
+    font-weight: bold;
+    color: #00bcd4; /* Blue education year */
+}
+
+/* Language Styles */
+.language-item {
+    margin-bottom: 15px;
+    text-align: justify;
+    font-size: 1.1em;
+}
+
+.language-name {
+    font-weight: bold;
+    color: #00bcd4; /* Blue language name */
+}
+
+/* Experience Styles */
+.experience-item {
+    margin-bottom: 30px;
+    text-align: justify;
+    font-size: 1.1em;
+}
+
+.experience-title {
+    font-weight: bold;
+    color: #00bcd4; /* Blue experience title */
+}
+
+.experience-company {
+    font-style: italic;
+}
+
+.experience-list li::before {
+    content: "\25C6"; /* Unicode for black diamond */
+    color: #00bcd4; /* Color of the diamond */
+    display: inline-block;
+    width: 1em; /* Width of the diamond */
+    height: 1em; /* Height of the diamond */
+    margin-right: 0.5em; /* Space between square and text */
+}
+
+/* Project Styles */
+.projects-container {
+    margin-top: 5px; /* Adjust margin above the projects */
+}
+
+.project {
+    margin-bottom: 15px; /* Adjust margin below each project */
+    text-align: center;
+    border: 1px solid #ccc; /* Add a 1px solid border with light gray color */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    padding: 10px; /* Optional: Add padding inside each project div */
+    margin-left: 5px;
+}
+
+.project img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure images maintain aspect ratio and cover the container */
+    margin-bottom: 15px;
+}
+
+.badges {
+    margin-bottom: 10px;
+}
+
+.badge-primary {
+    background-color: #007bff; /* Primary blue badge */
+}
+
+.project-links {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.project-links a {
+    text-decoration: none;
+    color: #007bff; /* Blue project links */
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Contact Styles */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Animation Styles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInUp {
+    animation: fadeInUp 1s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInDown {
+    animation: fadeInDown 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.zoomIn {
+    animation: zoomIn 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-200deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.rotateIn {
+    animation: rotateIn 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInRight {
+    animation: slideInRight 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInLeft {
+    animation: slideInLeft 2s ease;
+    opacity: 0; /* Initial state */
+    animation-fill-mode: forwards; /* Keep the final state */
+}
+
+/* Ensure Animate.css animations are visible */
+.animate__animated {
+    visibility: visible;
+}
+
+/* Custom delay classes */
+.animate__delay-0s {
+    animation-delay: 0s;
+}
+
+.animate__delay-1s {
+    animation-delay: 1s;
+}
+
+.animate__delay-2s {
+    animation-delay: 2s;
+}
+
+.animate__delay-3s {
+    animation-delay: 3s;
+}
+
+.animate__delay-4s {
+    animation-delay: 4s;
+}
+
+.animate__delay-5s {
+    animation-delay: 5s;
+}
+
+.animate__delay-6s {
+    animation-delay: 6s;
+}

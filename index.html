@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingynn May</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Ingynn May</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#personal-details">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#educations">Educations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="personal-details" class="content module container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="{{ personal_detail.photo }}" alt="Photo of {{ personal_detail.name }}" class="profile-photo rounded-circle img-fluid fadeIn animate__delay-0s">
+            </div>
+            <div class="col-md-8 text-center text-md-left">
+                <h1 class="title fadeInUp animate__delay-1s">I'm {{ personal_detail.name }}</h1>
+                <p class="subtitle fadeInUp animate__delay-2s">{{ personal_detail.profession }}</p>
+                <p class="bio fadeInUp animate__delay-3s">{{ personal_detail.bio }}</p>
+                <a href="#contact" class="btn btn-primary mt-3 fadeInUp animate__delay-4s">Contact Me</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="skills" class="content module container">
+        {% for skill_type, skills in grouped_skills.items %}
+        <div class="skill-category">
+            <h2 class="skill-type fadeInUp animate__delay-0s">{{ skill_type }}</h2>
+            <div class="row skill-list justify-content-center">
+                {% for skill in skills %}
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 skill text-center fadeInUp animate__delay-{{ forloop.counter0 }}s">
+                    <img src="{{ skill.logo }}" alt="{{ skill.name }} Logo" class="skill-logo img-fluid rounded zoomIn animate__delay-{{ forloop.counter0 }}s">
+                    <p class="skill-name slideInLeft animate__delay-{{ forloop.counter0 }}s">{{ skill.name }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="educations" class="content module container">
+        <h1 class="title fadeInUp">Educations</h1>
+        <ul class="education-list list-unstyled fadeInUp animate__delay-1s">
+            {% for education in educations %}
+                <li class="education-item">
+                    <span class="education-year font-weight-bold text-info">{{ education.year }}</span> - <span>{{ education.description }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div id="languages" class="content module container">
+        <h1 class="title fadeInUp">Languages</h1>
+        <ul class="language-list list-unstyled fadeInUp animate__delay-1s">
+            {% for language in languages %}
+                <li class="language-item">
+                    <span class="language-name font-weight-bold text-info fadeInUp">{{ language.name }}</span> : <span class="language-proficiency">{{ language.proficiency }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div id="experiences" class="content module container">
+        <h1 class="title fadeInUp">Experiences</h1>
+        <ul class="experience-list list-unstyled fadeInUp animate__delay-1s">
+            {% for experience in experiences %}
+            <li class="experience-item">
+                <span class="experience-title font-weight-bold text-info">{{ experience.title }} ({{ experience.start }} - {{ experience.end }})</span> <span class="experience-company font-italic">{{ experience.company }}</span>
+                <div class="col-md-12 text-left ms-n5">{{ experience.description }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="projects" class="content container">
+        <h1 class="title fadeInUp">Projects</h1>
+        <div class="row projects-container fadeInUp animate__delay-1s">
+            {% for project in projects %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project">
+                        <img src="{{ project.image }}" alt="{{ project.title }} image" class="img-fluid rounded">
+                        <h3>{{ project.title }}</h3>
+                        <ul class="badges list-inline">
+                            {% for badge in project.badges %}
+                                <li class="list-inline-item badge badge-primary">{{ badge }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p>{{ project.description }}</p>
+                        <div class="project-links">
+                            <a href="{{ project.links.website }}">Website</a> | 
+                            <a href="{{ project.links.github }}">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div id="contact" class="content module">
+        <h1 class="title fadeInUp">Contact Me</h1>
+        <p class="fadeInUp animate__delay-1s">If you'd like to get in touch, feel free to send me an email at <a href="mailto:ingynnmay.igm@gmail.com">ingynnmay.igm@gmail.com</a>.<br> I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+        <p class="fadeInUp animate__delay-2s">You can also download my CV:&nbsp;&nbsp;<a href="{% static 'myapp/Ingynn_May_Resume.pdf' %}" class="btn btn-outline-primary"> Download CV</a></p>
+        <div class="social-icons">
+            <a href="https://github.com/Ingynn-May" target="_blank">
+                <img src="{% static 'myapp/images/github.png' %}" alt="GitHub" class="slideInRight animate__delay-3s">
+            </a>
+            <a href="https://www.facebook.com/yourusername" target="_blank">
+                <img src="{% static 'myapp/images/facebook.png' %}" alt="Facebook" class="slideInRight animate__delay-4s">
+            </a>
+            <a href="https://www.linkedin.com/in/ingynn-may-680a0b157/" target="_blank">
+                <img src="{% static 'myapp/images/linkedin.png' %}" alt="LinkedIn" class="slideInRight animate__delay-5s">
+            </a>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
